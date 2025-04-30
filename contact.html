@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Mechanical Engineering Student</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-cog"></i> 
+        <span class="logo-text">My Engineering Site</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="book-reviews.html">Book Reviews</a></li>
+          <li><a href="professional-life.html">Professional Life</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content container">
+    <h1>Contact</h1>
+    <p>If you'd like to get in touch, feel free to send me an email or reach out on social media. You can also fill out the form below (it will open an email draft):</p>
+    <ul class="contact-info">
+      <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
+    </ul>
+    <form class="contact-form" action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="Name" placeholder="Your name" required><br><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="Message" rows="4" placeholder="Your message" required></textarea><br><br>
+      <button type="submit">Send Message</button>
+    </form>
+    <p><small>* Note: This form uses a mailto action. When submitted, it will attempt to open your email client to send the message.</small></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; 2025 Alex Doe. All rights reserved.</p>
+      <p>Connect with me: 
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+        <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i> Email</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
