@@ -1,12 +1,14 @@
-// script.js
-
-// Seleciona o botão de toggle e o elemento de navbar
-const navToggle = document.getElementById('navToggle');
-const headerContainer = document.querySelector('.header-container');
-const navbar = document.querySelector('.navbar');
-
-// Evento de clique para mostrar/ocultar menu em mobile
-navToggle.addEventListener('click', function() {
-  // Adiciona ou remove a classe que ativa o menu mobile
-  navbar.classList.toggle('mobile-active');
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  // Evento de clique para mostrar/ocultar o menu em mobile
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  // Fecha o menu ao clicar em um link (apenas para mobile)
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+    });
+  });
 });

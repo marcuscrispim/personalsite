@@ -1,270 +1,195 @@
-/* Base Reset & Typography */
+/* Reset de estilo b&aacute;sico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* Links - cor herdada e sublinhado apenas ao passar o mouse */
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container centralizado com largura m&aacute;xima para conte&uacute;do */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilo do menu de navega&ccedil;&atilde;o */
+nav {
+  background: #fff;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav a {
+  color: #333;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav .menu-toggle {
+  display: none;
+}
+
+/* Se&ccedil;&atilde;o hero (imagem de fundo em tela cheia) */
+.hero {
+  position: relative;
+  background: url('../images/hero.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+.hero p {
+  font-size: 1.5em;
+}
+
+/* Estilos gerais para se&ccedil;&otilde;es de conte&uacute;do */
+section:not(.hero) {
+  padding: 60px 0;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #000;
+}
+section:not(.hero) p {
+  margin-bottom: 1em;
+}
+article:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+/* Responsividade para telas m&oacute;veis */
+@media (max-width: 768px) {
+  nav .container {
+    justify-content: flex-end;
   }
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
   }
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0.5em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  p {
-    margin-bottom: 1em;
-  }
-  a {
-    color: #005faf;  /* Cor de link azul (pode ajustar) */
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Layout Containers */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  .header-container, .footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .content {
-    padding: 20px 0;
-  }
-  
-  /* Header and Navigation */
-  .site-header {
-    background-color: #222;
-    color: #fff;
-    padding: 10px 0;
-  }
-  .logo {
-    font-size: 1.2em;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-  }
-  .logo .fas.fa-cog {
-    margin-right: 8px;
-    color: #ffd700; /* engrenagem dourada como destaque */
-  }
-  .logo-text {
-    vertical-align: middle;
-  }
-  .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  .navbar .nav-links li {
-    display: inline-block;
-  }
-  .navbar .nav-links a {
-    color: #fff;
-    padding: 5px 8px;
-    border-radius: 4px;
-  }
-  .navbar .nav-links a:hover {
-    background-color: #444;
-  }
-  .navbar .nav-links a.active {
-    background-color: #005faf;
-    /* link ativo com cor de destaque */
-  }
-  .nav-toggle {
-    display: none; /* hidden on desktop by default */
-    background: none;
-    border: none;
-    color: #fff;
+  nav .menu-toggle {
+    display: block;
+    cursor: pointer;
     font-size: 1.5em;
   }
-  .nav-toggle:focus {
-    outline: 2px solid #fff;
+  nav.open .container {
+    flex-direction: column;
+    align-items: stretch;
   }
-  @media (max-width: 768px) {
-    .header-container {
-      flex-wrap: wrap;
-    }
-    .nav-toggle {
-      display: block;
-    }
-    .navbar {
-      width: 100%;
-    }
-    .navbar .nav-links {
-      /* initially hidden in mobile, will show when toggled */
-      flex-direction: column;
-      background-color: #222;
-      width: 100%;
-      display: none;
-      margin-top: 10px;
-    }
-    .navbar .nav-links li {
-      margin: 5px 0;
-      text-align: center;
-    }
-    .navbar.mobile-active .nav-links {
-      display: flex;
-    }
-  }
-  
-  /* Main Content Sections */
-  .home-intro {
-    text-align: center;
-    padding: 50px 0;
-  }
-  .home-intro h1 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-  }
-  .home-intro p {
-    font-size: 1.1em;
-  }
-  .blog-post, .book-review {
-    margin-bottom: 30px;
-  }
-  .post-meta {
-    font-size: 0.9em;
-    color: #555;
+  nav.open .menu-toggle {
+    align-self: flex-end;
     margin-bottom: 10px;
   }
-  .book-review h2 {
-    font-size: 1.2em;
-  }
-  .book-review p em {
-    color: #555;
-  }
-  .timeline {
-    margin-bottom: 30px;
-  }
-  .timeline ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  .timeline li {
-    margin: 5px 0 10px 0;
-  }
-  .projects-grid {
+  nav.open ul {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
   }
-  .project-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    flex: 1 1 250px;
-    /* ensures at least 250px width, flexibly grows */
-  }
-  .project-card h2 {
-    font-size: 1.1em;
+  nav.open ul li {
     margin: 10px 0;
   }
-  .project-card .project-description {
-    font-size: 0.95em;
-    margin-bottom: 10px;
+  /* Ajustes de fonte para hero em telas menores */
+  .hero h1 {
+    font-size: 2em;
   }
-  .project-card .project-link {
-    font-weight: bold;
-    color: #005faf;
+  .hero p {
+    font-size: 1.2em;
   }
-  .project-card .project-link:hover {
-    text-decoration: underline;
-  }
-  .project-image {
-    max-width: 100%;
-    border-radius: 4px;
-  }
-  .about-section {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .about-section .profile-pic {
-    max-width: 150px;
-    border-radius: 50%;
-  }
-  .about-section p {
-    text-align: justify;
-  }
-  @media (max-width: 600px) {
-    .about-section {
-      flex-direction: column;
-      align-items: center;
-    }
-    .about-section .profile-pic {
-      margin-bottom: 15px;
-    }
-  }
-  .contact-info {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-  .contact-info li {
-    margin-bottom: 8px;
-  }
-  .contact-info a {
-    color: #005faf;
-  }
-  .contact-form {
-    max-width: 400px;
-    margin-bottom: 20px;
-  }
-  .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .contact-form button {
-    background-color: #005faf;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .contact-form button:hover {
-    background-color: #004a8c;
-  }
-  
-  /* Footer */
-  .site-footer {
-    background-color: #222;
-    color: #fff;
-    padding: 15px 0;
-    margin-top: 40px;
-    font-size: 0.9em;
-  }
-  .site-footer a {
-    color: #fff;
-  }
-  .site-footer a:hover {
-    text-decoration: underline;
-  }
-  .site-footer .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .site-footer .footer-container p {
-    margin: 5px 0;
-  }
-  
-  /* Smooth transitions for interactivity */
-  .navbar .nav-links a,
-  .nav-toggle,
-  .contact-form button {
-    transition: background-color 0.3s ease;
-  }
-  
+}
+.pros-cons {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.pros-cons th, .pros-cons td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+.pros-cons th {
+  background-color: #f0f0f0;
+}
+/* Hero ocupa tela cheia com background image */
+.hero {
+  position: relative;
+  height: 100vh; /* toda a altura da viewport */
+  background: url('../images/sae.jpg') center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Overlay semitransparente */
+.hero-overlay {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Conteúdo sobre a imagem */
+.hero-content {
+  position: relative;
+  z-index: 1;   /* acima do overlay */
+  color: #fff;  /* texto branco */
+  padding: 0 20px;
+}
+
+/* Tamanhos do título e subtítulo */
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+.hero-content p {
+  font-size: 1.25rem;
+}
